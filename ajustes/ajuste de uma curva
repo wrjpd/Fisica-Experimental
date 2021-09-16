@@ -1,0 +1,130 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+"""Estilo de gráficos"""
+
+
+
+x_1=np.arange(0,125,5)
+y_2=np.random.random(len(x_1))
+
+
+plt.scatter(x_1,y_2,color='deeppink'
+           ,marker='*'
+           ,s=150
+           ,edgecolor='black')
+plt.xlabel('titulox',fontsize=16)
+plt.ylabel('y',fontsize=12)
+plt.title('da')
+plt.rcParams.update({'font.size':3})
+
+plt.xlim(0,125)
+
+plt.show()
+
+
+
+
+
+
+
+
+x_2=np.arange(0,125,5)
+y_2=np.random.random(len(x_2))
+
+y2=np.random.uniform(-1,0,len(x_2))
+
+# plt.figure(figsize=(8,5))
+plt.scatter(x_2,y_2,color='deeppink'
+           ,marker='*'
+           ,s=150
+           ,edgecolor='black'
+           ,label='serie1')
+plt.scatter(x_2,y2,color='darkturquoise'
+           ,marker='*'
+           ,s=120
+           ,edgecolor='black'
+           ,label='aerie2')
+
+plt.xlabel('titulox',fontsize=16)
+plt.ylabel('y',fontsize=16)
+plt.title('da')
+plt.rcParams.update({'font.size':25})
+
+plt.legend(ncol=2)
+
+plt.xlim([0,125])
+plt.ylim([-1.2,1.2])
+plt.grid(True)
+
+plt.show()
+
+
+
+"""Plot de dois conjuntos de dados no mesmo eixo x"""
+
+
+
+x=np.arange(0,125,5)
+y_3=np.random.uniform(-10,2,len(x))
+y_4=np.random.uniform(0,20,len(x))
+
+
+fig,ax=plt.subplots(figsize=(12,6))
+
+color1='tomato'
+
+
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.plot(x,y_3,color='tomato',marker='o',markersize=9,linestyle='--')
+ax.set_ylim([-10,10])
+
+ax2=ax.twinx() #compartilha o mesmo eixo x
+
+ax2.set_ylabel('y2')
+ax2.plot(x,y_4,color='royalblue',marker='s',markersize=8,linestyle='-.')
+
+plt.rcParams.update({'font.size':16})
+
+
+plt.show()
+
+
+
+"""Gráfico de incertezas"""
+
+
+
+x_5=np.arange(1,130,5)
+y_5=np.random.uniform(1,30,len(x_5))
+y_5=np.sort(y_5)
+yerro=0.2*y_5
+
+
+plt.rcParams.update({'font.size':14})
+
+plt.figure(figsize=(8,5))
+plt.errorbar(x_5,y_5,yerr=yerro
+             ,fmt='o',markerfacecolor='red'#mfc
+            ,markeredgecolor='black'#mec
+            
+            ,markersize=1 #ms
+            ,ecolor='black'
+            ,capsize=1)
+
+plt.title('NOME',fontsize=20)
+plt.xlabel('x',fontsize=20)
+plt.ylabel('y',fontsize=20)
+
+plt.xlim([0,130])
+plt.ylim([0,40])
+
+plt.savefig('dadada',dpi=600)
+
+plt.rcParams.update({'font.size':14})
+
+
+plt.show()
+
