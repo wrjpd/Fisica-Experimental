@@ -1,0 +1,28 @@
+"""
+Função que calcula os resíduos
+
+x=variável independente
+y=variável independente
+arg1=limite esquerdo da reta
+arg2=limite direito da reta
+
+"""
+
+
+def res (x,y,arg1,arg2,erro):
+    t=np.array(x)
+    i=0
+    lista=[]
+    for i in range(len(t)):
+        num=fun(float(t[i]),-11.48717624,20.69558929)
+        lista.append(y[i]-num)
+    xx=np.arange(arg1,arg2,0.001)
+    plt.figure(figsize=(8,3))
+    plt.errorbar(t,lista,yerr=erro,fmt='o')
+    plt.plot(xx,np.zeros(len(xx)),"r--")
+    plt.xlim(15,65)
+    plt.ylim(-3.5,3.5)
+    plt.xlabel('posição do objeto (cm)')
+    plt.grid(True)
+    #plt.savefig('residuos ixo', dpi=600)
+    
